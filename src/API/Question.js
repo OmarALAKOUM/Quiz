@@ -3,7 +3,7 @@ const questions = [
     question:
       "Which file contains Laravel's environment configuration settings?",
     options: [".env", "config/app.php", "config/database.php", "config/.env"],
-    answer: ".env",
+    answer: 0, 
   },
   {
     question: "What is the purpose of Laravel migrations?",
@@ -13,7 +13,7 @@ const questions = [
       "To manage HTTP routes",
       "To authenticate users",
     ],
-    answer: "To create and modify database tables",
+    answer: 0, 
   },
   {
     question:
@@ -24,7 +24,7 @@ const questions = [
       "Route::controller('/home', 'HomeController')",
       "Route::create('/home')",
     ],
-    answer: "Route::get('/', 'HomeController@index')",
+    answer: 0, 
   },
   {
     question: "Which command is used to install Laravel dependencies?",
@@ -34,7 +34,7 @@ const questions = [
       "composer create-project",
       "php artisan install",
     ],
-    answer: "composer install",
+    answer: 0,
   },
   {
     question: "What does the `php artisan serve` command do?",
@@ -44,7 +44,7 @@ const questions = [
       "Starts a queue listener",
       "Runs migrations",
     ],
-    answer: "Runs a local development server",
+    answer: 0,
   },
   {
     question:
@@ -55,13 +55,13 @@ const questions = [
       "Model::all()",
       "Model::select()",
     ],
-    answer: "Model::all()",
+    answer: 2, 
   },
   {
     question:
       "Which of the following Blade directives is used to display content?",
     options: ["@show", "@yield", "@display", "@content"],
-    answer: "@yield",
+    answer: 1, 
   },
   {
     question: "Which service provider is used to register a route in Laravel?",
@@ -71,7 +71,7 @@ const questions = [
       "DatabaseServiceProvider",
       "ViewServiceProvider",
     ],
-    answer: "RouteServiceProvider",
+    answer: 0,
   },
   {
     question:
@@ -82,7 +82,7 @@ const questions = [
       "config/variables.php",
       "resources/views/layouts/app.blade.php",
     ],
-    answer: "config/app.php",
+    answer: 0, 
   },
   {
     question: "Which method is used to store data in the Laravel session?",
@@ -92,7 +92,9 @@ const questions = [
       "Session::save()",
       "Session::set()",
     ],
-    answer: "Session::put()",
-  },
+    answer: 1, 
+  }
 ];
+
 export default questions;
+

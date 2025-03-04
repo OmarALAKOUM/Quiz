@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 
 const Questions = ({ question, onAnswer, answers, pageindex }) => {
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
 
   useEffect(() => {
-    if (answers[pageindex]) {
+    if (answers[pageindex] !== undefined) {
       setSelectedOption(answers[pageindex]);
     } else {
-      setSelectedOption("");
+      setSelectedOption(null);
     }
   }, [answers, pageindex]);
 
   const handleChange = (event) => {
-    const selectedValue = event.target.value;
+    const selectedValue = Number(event.target.value);
     setSelectedOption(selectedValue); 
     onAnswer(selectedValue);
   };
@@ -25,8 +25,8 @@ const Questions = ({ question, onAnswer, answers, pageindex }) => {
           <label key={index} className="option-label">
             <input
               type="radio"
-              value={option}
-              checked={selectedOption === option}
+              value={index}
+              checked={selectedOption === index}
               onChange={handleChange}
               className="radio-input"
               aria-label={option} // For better accessibility

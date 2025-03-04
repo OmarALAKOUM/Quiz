@@ -16,11 +16,10 @@ const Quiz = ({ questions }) => {
   const calculateScore = () => {
     let score = 0;
     answers.forEach((answer, index) => {
-      if (answer === questions[index].answer) {
+      if (answer !== null && answer !== undefined && answer === questions[index].answer) {
         score += 1;
       }
     });
-
     return score;
   };
 
