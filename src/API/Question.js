@@ -2,7 +2,7 @@ const questions = [
   {
     question:
       "Which file contains Laravel's environment configuration settings?",
-    options: [".env", "config/app.php", "config/database.php", "config/.env"],
+    options: [".env", "config/app.php", "config/database.php", "config/.env",],
     answer: 0, 
   },
   {
