@@ -3,7 +3,7 @@ const questions = [
     question:
       "Which file contains Laravel's environment configuration settings?",
     options: [".env", "config/app.php", "config/database.php", "config/.env",],
-    answer: 0, 
+    answer: [0], 
   },
   {
     question: "What is the purpose of Laravel migrations?",
@@ -13,7 +13,7 @@ const questions = [
       "To manage HTTP routes",
       "To authenticate users",
     ],
-    answer: 0, 
+    answer: [0], 
   },
   {
     question:
@@ -24,7 +24,7 @@ const questions = [
       "Route::controller('/home', 'HomeController')",
       "Route::create('/home')",
     ],
-    answer: 0, 
+    answer: [0], 
   },
   {
     question: "Which command is used to install Laravel dependencies?",
@@ -34,7 +34,7 @@ const questions = [
       "composer create-project",
       "php artisan install",
     ],
-    answer: 0,
+    answer:[0] ,
   },
   {
     question: "What does the `php artisan serve` command do?",
@@ -44,7 +44,7 @@ const questions = [
       "Starts a queue listener",
       "Runs migrations",
     ],
-    answer: 0,
+    answer: [0],
   },
   {
     question:
@@ -55,13 +55,13 @@ const questions = [
       "Model::all()",
       "Model::select()",
     ],
-    answer: 2, 
+    answer: [2], 
   },
   {
     question:
       "Which of the following Blade directives is used to display content?",
     options: ["@show", "@yield", "@display", "@content"],
-    answer: 1, 
+    answer: [1], 
   },
   {
     question: "Which service provider is used to register a route in Laravel?",
@@ -71,7 +71,7 @@ const questions = [
       "DatabaseServiceProvider",
       "ViewServiceProvider",
     ],
-    answer: 0,
+    answer:[0] ,
   },
   {
     question:
@@ -82,7 +82,7 @@ const questions = [
       "config/variables.php",
       "resources/views/layouts/app.blade.php",
     ],
-    answer: 0, 
+    answer: [0], 
   },
   {
     question: "Which method is used to store data in the Laravel session?",
@@ -92,8 +92,28 @@ const questions = [
       "Session::save()",
       "Session::set()",
     ],
-    answer: 1, 
-  }
+    answer: [1], 
+  },
+  {
+    question: "Which of the following are types of middleware in Laravel?",
+    options: [
+      "Authenticate",
+      "RedirectIfAuthenticated",
+      "EloquentModel",
+      "DatabaseSeeder",
+    ],
+    answer: [0, 1], 
+  },
+  {
+    question: "Which of the following methods can be used to define a route in Laravel?",
+    options: [
+      "Route::get('/home', 'HomeController@index')",
+      "Route::put('/home', 'HomeController@update')",
+      "Route::delete('/home', 'HomeController@destroy')",
+      "Route::create('/home')",
+    ],
+    answer: [0, 1, 2], 
+  },
 ];
 
 export default questions;

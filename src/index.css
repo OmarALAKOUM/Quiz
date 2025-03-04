@@ -187,6 +187,12 @@ body {
   margin-right: 10px; 
   cursor: pointer; 
 }
+.checkbox-input{
+  width: 20px;  
+  height: 25px; 
+  margin-right: 10px; 
+  cursor: pointer; 
+}
 
 .option-text {
   color: #555;

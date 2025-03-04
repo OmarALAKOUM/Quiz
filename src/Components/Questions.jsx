@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from "react";
 
 const Questions = ({ question, onAnswer, answers, pageindex }) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  
+  const [selectedOptions, setSelectedOptions] = useState([]);
 
   useEffect(() => {
     if (answers[pageindex] !== undefined) {
-      setSelectedOption(answers[pageindex]);
+      setSelectedOptions(answers[pageindex]); 
     } else {
-      setSelectedOption(null);
+      setSelectedOptions([]); 
     }
   }, [answers, pageindex]);
 
   const handleChange = (event) => {
     const selectedValue = Number(event.target.value);
-    setSelectedOption(selectedValue); 
-    onAnswer(selectedValue);
+
+    if (selectedOptions.includes(selectedValue)) {
+      setSelectedOptions(selectedOptions.filter(option => option !== selectedValue));
+      onAnswer(selectedOptions.filter(option => option !== selectedValue));
+    } else {
+      const newSelectedOptions = [...selectedOptions, selectedValue];
+      setSelectedOptions(newSelectedOptions);
+      onAnswer(newSelectedOptions); 
+    }
   };
 
   return (
@@ -24,12 +32,12 @@ const Questions = ({ question, onAnswer, answers, pageindex }) => {
         {question.options.map((option, index) => (
           <label key={index} className="option-label">
             <input
-              type="radio"
+              type="checkbox"
               value={index}
-              checked={selectedOption === index}
+              checked={selectedOptions.includes(index)} 
               onChange={handleChange}
-              className="radio-input"
-              aria-label={option} // For better accessibility
+              className="checkbox-input"
+              aria-label={option} 
             />
             <span className="option-text">{option}</span>
           </label>

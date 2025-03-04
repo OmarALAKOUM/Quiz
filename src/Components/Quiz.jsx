@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Questions from "./Questions";
 import Navigation from "./Navigation";
 import FinalPage from "./FinalPage";
@@ -16,16 +16,34 @@ const Quiz = ({ questions }) => {
   const calculateScore = () => {
     let score = 0;
     answers.forEach((answer, index) => {
+     
+      if (Array.isArray(answer) && Array.isArray(questions[index].answer)) {
+        if (
+          answer.length === questions[index].answer.length &&
+          answer.every((value) => questions[index].answer.includes(value)) &&
+          questions[index].answer.every((value) => answer.includes(value))
+        ) {
+          score += 1; 
+        }
+      }
+    });
+    return score;
+  };
+
+  /*
+  const calculateScore = () => {
+    let score = 0;
+    answers.forEach((answer, index) => {
       if (answer !== null && answer !== undefined && answer === questions[index].answer) {
         score += 1;
       }
     });
     return score;
   };
-
+*/
   const restartQuiz = () => {
-    setAnswers([]);     
-    setPageIndex(0);     
+    setAnswers([]);
+    setPageIndex(0);
   };
 
   return (
