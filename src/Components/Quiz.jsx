@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState} from "react";
 import Questions from "./Questions";
 import Navigation from "./Navigation";
 import FinalPage from "./FinalPage";
@@ -9,13 +9,9 @@ const Quiz = ({ questions }) => {
   const handleAnswer = (selectedAnswer) => {
     const userAnswers = [...answers];
     userAnswers[pageindex] = selectedAnswer;
-    console.log(userAnswers); 
+    console.log(userAnswers);
     setAnswers(userAnswers);
   };
-  
-  useEffect(() => {
-    console.log(answers); 
-  }, [answers]);
 
   const calculateScore = () => {
     let score = 0;
@@ -27,32 +23,40 @@ const Quiz = ({ questions }) => {
 
     return score;
   };
-  
+
+  const restartQuiz = () => {
+    setAnswers([]);     
+    setPageIndex(0);     
+  };
+
   return (
-    !(pageindex==questions.length-1) ? (
-      <div>
-        <Questions
-          question={questions[pageindex]}
-          onAnswer={handleAnswer}
-          answers={answers}
-          pageindex={pageindex}
-        />
-        <Navigation 
-          pageindex={pageindex}
-          handlepageindex={setPageIndex} 
-          totalpage={questions.length}
-        />
-      </div>
-    ) : (
-     <div>
-        <FinalPage 
-            score = {calculateScore()*4}
-            totalquestion={questions.length *4}
-        />
-      </div>
-    )
+    <div className="quiz-container">
+      {pageindex !== questions.length ? (
+        <>
+          <Navigation
+            pageindex={pageindex}
+            handlepageindex={setPageIndex}
+            totalpage={questions.length}
+          >
+            <Questions
+              question={questions[pageindex]}
+              onAnswer={handleAnswer}
+              answers={answers}
+              pageindex={pageindex}
+            />
+          </Navigation>
+        </>
+      ) : (
+        <div className="final-page-container">
+          <FinalPage
+            score={calculateScore() * 4}
+            totalquestion={questions.length * 4}
+            restartQuiz={restartQuiz}
+          />
+        </div>
+      )}
+    </div>
   );
-  
 };
 
 export default Quiz;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const Questions = ({ question, onAnswer, answers, pageindex }) => {
   const [selectedOption, setSelectedOption] = useState("");
+
   useEffect(() => {
     if (answers[pageindex]) {
       setSelectedOption(answers[pageindex]);
@@ -17,18 +18,20 @@ const Questions = ({ question, onAnswer, answers, pageindex }) => {
   };
 
   return (
-    <div>
-      <h2>{question.question}</h2>
-      <div>
+    <div className="question-container">
+      <h2 className="question-title">{question.question}</h2>
+      <div className="options-container">
         {question.options.map((option, index) => (
-          <label key={index}>
+          <label key={index} className="option-label">
             <input
               type="radio"
               value={option}
               checked={selectedOption === option}
               onChange={handleChange}
+              className="radio-input"
+              aria-label={option} // For better accessibility
             />
-            {option}
+            <span className="option-text">{option}</span>
           </label>
         ))}
       </div>

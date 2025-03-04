@@ -1,11 +1,9 @@
 import React from "react";
 
-const Navigation = ({ pageindex, handlepageindex, totalpage }) => {
+const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
   const handleNext = () => {
-    if (pageindex < totalpage - 1) {
-      handlepageindex(pageindex + 1);
-      console.log(pageindex);
-    }
+    handlepageindex(pageindex + 1);
+    console.log(pageindex);
   };
 
   const handlePrevious = () => {
@@ -15,18 +13,17 @@ const Navigation = ({ pageindex, handlepageindex, totalpage }) => {
   };
 
   return (
-    <div>
-      <p>
+    <div className="navigation-container">
+      <div className="navigation-header">
         Question {pageindex + 1} of {totalpage}
-      </p>
-
-      {pageindex > 0 && <button onClick={handlePrevious}>Previous</button>}
-
-      {pageindex < totalpage - 1 ? (
-        <button onClick={handleNext}>Next</button>
-      ) : (
-        <button onClick={handleNext}>Submit</button>
-      )}
+      </div>
+      {children}
+      <div className="navigation-buttons">
+        {pageindex > 0 && <button onClick={handlePrevious}>Previous</button>}
+        <button onClick={handleNext}>
+          {pageindex < totalpage - 1 ? "Next" : "Submit"}
+        </button>
+      </div>
     </div>
   );
 };
