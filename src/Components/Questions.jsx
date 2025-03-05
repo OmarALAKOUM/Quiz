@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 
 const Questions = ({ question, onAnswer, answers, pageindex }) => {
-  
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   useEffect(() => {
     if (answers[pageindex] !== undefined) {
-      setSelectedOptions(answers[pageindex]); 
+      setSelectedOptions(answers[pageindex]);
     } else {
-      setSelectedOptions([]); 
+      setSelectedOptions([]);
     }
   }, [answers, pageindex]);
 
@@ -16,12 +15,14 @@ const Questions = ({ question, onAnswer, answers, pageindex }) => {
     const selectedValue = Number(event.target.value);
 
     if (selectedOptions.includes(selectedValue)) {
-      setSelectedOptions(selectedOptions.filter(option => option !== selectedValue));
-      onAnswer(selectedOptions.filter(option => option !== selectedValue));
+      setSelectedOptions(
+        selectedOptions.filter((option) => option !== selectedValue)
+      );
+      onAnswer(selectedOptions.filter((option) => option !== selectedValue));
     } else {
       const newSelectedOptions = [...selectedOptions, selectedValue];
       setSelectedOptions(newSelectedOptions);
-      onAnswer(newSelectedOptions); 
+      onAnswer(newSelectedOptions);
     }
   };
 
@@ -34,10 +35,10 @@ const Questions = ({ question, onAnswer, answers, pageindex }) => {
             <input
               type="checkbox"
               value={index}
-              checked={selectedOptions.includes(index)} 
+              checked={selectedOptions.includes(index)}
               onChange={handleChange}
               className="checkbox-input"
-              aria-label={option} 
+              aria-label={option}
             />
             <span className="option-text">{option}</span>
           </label>

@@ -42,6 +42,8 @@ body {
   margin-top: 0;
   margin-left: 10px;
   color:darkgrey;
+  display: flex;
+  justify-content: space-between;
 }
 
 .navigation-container {
@@ -203,6 +205,75 @@ body {
 input:checked + .option-text {
   font-weight: bold;
   color:#6f42c1;
+}
+
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.feedback-table th,
+.feedback-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.feedback-table th {
+  background-color: #f4f4f4; 
+  font-weight: bold;
+  color: #333;
+}
+
+.feedback-table td {
+  background-color: #fff; 
+  color: #555; 
+}
+
+.feedback-table tr:nth-child(even) {
+  background-color: #f9f9f9; 
+}
+
+.feedback-table tr:hover {
+  background-color: #f1f1f1; 
+  cursor: pointer;
+}
+
+.feedback-table td {
+  font-size: 12px; 
+}
+
+.feedback-table td:last-child {
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  overflow: visible; 
+  white-space: normal; 
+  background-color: #f9f9f9;
+}
+.download-pdf{
+  padding: 10px;
+  border: none;
+  background-color:  #6f42c1;
+  color: white;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex: 1;
+  margin-top:5px;
+}
+
+.timer {
+  font-size: 14px;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 10px;
+  padding: 3px 4px; 
+  border-radius: 3px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 700px) {
