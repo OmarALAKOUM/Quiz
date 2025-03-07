@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from "react";
+import config from '../API/config'
 
 const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
   const [timeLeft, setTimeLeft] = useState(30); 
@@ -44,7 +45,7 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
     if (!isQuizFinished) {
       const timer = setInterval(() => {
         setTotalTime((prevTime) => {
-          if (prevTime >= 40) { 
+          if (prevTime >= config.totaltimer) { 
             clearInterval(timer);
             setIsQuizFinished(true); 
             handleSubmit();
