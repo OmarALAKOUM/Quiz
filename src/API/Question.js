@@ -1,9 +1,9 @@
 const questions = [
   {
-    question:
-      "Which file contains Laravel's environment configuration settings?",
-    options: [".env", "config/app.php", "config/database.php", "config/.env",],
+    question: "Which file contains Laravel's environment configuration settings?",
+    options: [".env", "config/app.php", "config/database.php", "config/.env"],
     answer: [0], 
+    score: 1, 
   },
   {
     question: "What is the purpose of Laravel migrations?",
@@ -14,10 +14,10 @@ const questions = [
       "To authenticate users",
     ],
     answer: [0], 
+    score: 1, 
   },
   {
-    question:
-      "Which of the following is a valid way to create a new route in Laravel?",
+    question: "Which of the following is a valid way to create a new route in Laravel?",
     options: [
       "Route::get('/', 'HomeController@index')",
       "Route::post('/home', 'HomeController@index')",
@@ -25,6 +25,7 @@ const questions = [
       "Route::create('/home')",
     ],
     answer: [0], 
+    score: 1, 
   },
   {
     question: "Which command is used to install Laravel dependencies?",
@@ -34,7 +35,8 @@ const questions = [
       "composer create-project",
       "php artisan install",
     ],
-    answer:[0] ,
+    answer: [0],
+    score: 1,
   },
   {
     question: "What does the `php artisan serve` command do?",
@@ -44,11 +46,11 @@ const questions = [
       "Starts a queue listener",
       "Runs migrations",
     ],
-    answer: [0],
+    answer: [0], 
+    score: 1, 
   },
   {
-    question:
-      "Which method in Laravel is used to retrieve all records from a database table using Eloquent?",
+    question: "Which method in Laravel is used to retrieve all records from a database table using Eloquent?",
     options: [
       "Model::findAll()",
       "Model::get()",
@@ -56,12 +58,13 @@ const questions = [
       "Model::select()",
     ],
     answer: [2], 
+    score: 1, 
   },
   {
-    question:
-      "Which of the following Blade directives is used to display content?",
+    question: "Which of the following Blade directives is used to display content?",
     options: ["@show", "@yield", "@display", "@content"],
     answer: [1], 
+    score: 1, 
   },
   {
     question: "Which service provider is used to register a route in Laravel?",
@@ -71,11 +74,11 @@ const questions = [
       "DatabaseServiceProvider",
       "ViewServiceProvider",
     ],
-    answer:[0] ,
+    answer: [0], 
+    score: 1, 
   },
   {
-    question:
-      "Which file would you modify to add global variables for your Laravel application?",
+    question: "Which file would you modify to add global variables for your Laravel application?",
     options: [
       "config/app.php",
       "config/database.php",
@@ -83,6 +86,7 @@ const questions = [
       "resources/views/layouts/app.blade.php",
     ],
     answer: [0], 
+    score: 1, 
   },
   {
     question: "Which method is used to store data in the Laravel session?",
@@ -93,6 +97,7 @@ const questions = [
       "Session::set()",
     ],
     answer: [1], 
+    score: 1,
   },
   {
     question: "Which of the following are types of middleware in Laravel?",
@@ -103,6 +108,7 @@ const questions = [
       "DatabaseSeeder",
     ],
     answer: [0, 1], 
+    score: 1, 
   },
   {
     question: "Which of the following methods can be used to define a route in Laravel?",
@@ -113,8 +119,8 @@ const questions = [
       "Route::create('/home')",
     ],
     answer: [0, 1, 2], 
-  },
+    score: 1, 
+  }
 ];
 
 export default questions;
-

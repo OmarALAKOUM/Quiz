@@ -1,7 +1,6 @@
 import { useRef } from "react";
 const FinalPage = ({
   score,
-  totalquestion,
   restartQuiz,
   answers,
   questions,
@@ -68,10 +67,10 @@ const FinalPage = ({
       <div className="final-score">
         <h3>Your Score: </h3>
         <p>
-          {score} / {totalquestion}
+          {score} 
         </p>
       </div>
-
+        {/* {score}  / {totalquestion} */}
       <div className="answers-feedback" ref={answersFeedbackRef}>
         <h3>Quiz Review</h3>
         <table id="feedback-table" className="feedback-table">

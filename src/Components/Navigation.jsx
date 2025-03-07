@@ -4,9 +4,14 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
   const [timeLeft, setTimeLeft] = useState(30); 
   const [timerActive, setTimerActive] = useState(false);
 
+  const [totalTime, setTotalTime] = useState(0); 
+  const [isQuizFinished, setIsQuizFinished] = useState(false); 
+
+  const handleSubmit =()=>{
+    handlepageindex(totalpage)
+  }
   const handleNext = () => {
     handlepageindex(pageindex + 1);
-    console.log(pageindex);
   };
 
   const handlePrevious = () => {
@@ -24,7 +29,8 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
             return prevTime - 1; 
           } else {
             clearInterval(timer); 
-            handleNext() 
+            setTimeLeft(30);  
+            handleNext();  
             return prevTime;
           }
         });
@@ -33,6 +39,25 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
       return () => clearInterval(timer);
     }
   }, [pageindex,totalpage]);
+
+  useEffect(() => {
+    if (!isQuizFinished) {
+      const timer = setInterval(() => {
+        setTotalTime((prevTime) => {
+          if (prevTime >= 40) { 
+            clearInterval(timer);
+            setIsQuizFinished(true); 
+            handleSubmit();
+            return prevTime;
+          } else {
+            return prevTime + 1;
+          }
+        });
+      }, 1000);
+
+      return () => clearInterval(timer); 
+    }
+  }, [isQuizFinished]);
 
   return (
     <div className="navigation-container">
