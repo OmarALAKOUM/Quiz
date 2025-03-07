@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState,useCallback} from "react";
 import Questions from "./Questions";
 import Navigation from "./Navigation";
 import FinalPage from "./FinalPage";
@@ -30,6 +30,10 @@ const Quiz = ({ questions }) => {
   //   return score;
   // };
 
+   const handlePageIndex = useCallback((newIndex) => {
+    setPageIndex(newIndex);
+  }, []);
+
   const calculateScore = () => {
     let score = 0;
     answers.forEach((answer, index) => {
@@ -60,7 +64,7 @@ const Quiz = ({ questions }) => {
         <>
           <Navigation
             pageindex={pageindex}
-            handlepageindex={setPageIndex}
+            handlepageindex={handlePageIndex}
             totalpage={questions.length}
           >
             <Questions

@@ -20,6 +20,7 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
       handlepageindex(pageindex - 1);
     }
   };
+
   useEffect(() => {
     if (pageindex < totalpage) {
       setTimeLeft(30); 
@@ -27,20 +28,20 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => {
           if (prevTime > 0) {
-            return prevTime - 1; 
+            return prevTime - 1;
           } else {
             clearInterval(timer); 
-            setTimeLeft(30);  
-            handleNext();  
+            setTimeout(() => {
+              handleNext(); 
+            }, 0); 
             return prevTime;
           }
         });
       }, 1000);
-
       return () => clearInterval(timer);
     }
-  }, [pageindex,totalpage]);
-
+  }, [pageindex, totalpage]);
+  
   useEffect(() => {
     if (!isQuizFinished) {
       const timer = setInterval(() => {
@@ -48,14 +49,15 @@ const Navigation = ({ pageindex, handlepageindex, totalpage, children }) => {
           if (prevTime >= config.totaltimer) { 
             clearInterval(timer);
             setIsQuizFinished(true); 
-            handleSubmit();
+              setTimeout(()=>{
+               handleSubmit();
+             },1)
             return prevTime;
           } else {
             return prevTime + 1;
           }
         });
       }, 1000);
-
       return () => clearInterval(timer); 
     }
   }, [isQuizFinished]);
